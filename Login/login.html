@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="imagenes/sf.png" alt="icono">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <title>Inicio de sesión</title>
+</head>
+
+<body>
+<header>
+    <img id="logo" src="imagenes/sf.png" alt="">
+    <nav id="menu">
+        <a href="/productos">Productos</a>
+        <a href="/tiendas">Sucursales</a>
+        <a href="/about">Sobre Nosotros</a>
+        <a href="/carro" id="shop" ><img src="imagenes/carrito-de-compras.png" id="carro" alt=""></a>
+    </nav>
+</header>
+   <div class="wrapper">
+    <img src="imagenes/sf.png" class="logo" alt="Logo de la página">
+    <div class="title-text">
+        <div class="title login">
+            Inicio de sesión
+    </div>
+    <div class="title signup">
+            Registro
+        </div>
+    </div>
+    <div class="form-container">
+        <div class="slide-controls">
+         <input type="radio" name="slide" id="login" checked>
+         <input type="radio" name="slide" id="signup">
+         <label for="login" class="slide login">Inicio de sesión</label>
+         <label for="signup" class="slide signup">Registro</label>
+         <div class="slider-tab"></div>    
+        </div>
+        <div class="form-inner">
+            <form action="#" class="login">
+                <div class="field">
+                    <input type="text" placeholder="Email" required>   
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <div class="pass-link">
+                    <a href="#">olvide mi contraseña</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Iniciar sesión">
+                </div>
+                <div class="signup-link"> 
+                    no tienes cuenta? <a href="">Registrarse ahora</a>
+                </div>
+            </form>
+            <form action="#" class="signup">
+                <div class="field">
+                    <input type="text" placeholder="Email" required>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Contraseña" required>
+                </div>
+                <div class="field">
+                    <input type="password" placeholder="Confirmar contraseña" required>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Registrarse">
+                </div>
+                <!-- Modal -->          
+            </form>
+        </div>
+   </div> 
+</div>
+<!-- aqui se usa javascript para los botones sliders -->
+<script>
+    // Selecciona el elemento que contiene el texto de inicio de sesión
+    const loginText = document.querySelector(".title-text .login");
+    // Selecciona el formulario de inicio de sesión
+    const loginForm = document.querySelector("form.login");
+    // Selecciona el botón de inicio de sesión
+    const loginBtn = document.querySelector("label.login");
+    // Selecciona el botón de registro
+    const signupBtn = document.querySelector("label.signup");
+    // Selecciona el enlace de registro dentro del formulario
+    const signupLink = document.querySelector("form .signup-link a");
+
+    // Cuando se hace clic en el botón de registro, oculta el formulario de inicio de sesión y el texto
+    signupBtn.onclick = (()=>{
+      loginForm.style.marginLeft = "-50%"; // Mueve el formulario hacia la izquierda para ocultarlo
+      loginText.style.marginLeft = "-50%"; // Mueve el texto hacia la izquierda para ocultarlo
+    });
+    // Cuando se hace clic en el botón de inicio de sesión, muestra el formulario de inicio de sesión y el texto
+    loginBtn.onclick = (()=>{
+      loginForm.style.marginLeft = "0%"; // Muestra el formulario moviéndolo hacia la derecha
+      loginText.style.marginLeft = "0%";  // Muestra el texto moviéndolo hacia la derecha
+    });
+
+    // Cuando se hace clic en el enlace de registro, simula un clic en el botón de registro y evita la acción predeterminada del enlace
+    signupLink.onclick = (()=>{
+      signupBtn.click(); // Simula un clic en el botón de registro
+      return false; // Evita la acción predeterminada del enlace
+    });
+ </script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+ <script>
+    document.getElementById('registroBtn').addEventListener('click', function () {
+        var myModal = new bootstrap.Modal(document.getElementById('registroModal'));
+        myModal.show();
+    });
+</script>
+</body>
+</html>
